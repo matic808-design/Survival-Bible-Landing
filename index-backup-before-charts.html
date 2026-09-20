@@ -1,0 +1,937 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta name="theme-color" content="#07100d" />
+  <meta name="description" content="Living Off the Grid: The Survival Bible by Daniel B. Anderson — a practical field guide to preparedness, survival, and long-term off-grid living." />
+  <title>Living Off the Grid — The Survival Bible</title>
+
+  <style>
+    :root {
+      --bg: #07100d;
+      --bg2: #0b1712;
+      --panel: rgba(12, 26, 20, .88);
+      --panel2: rgba(8, 17, 13, .94);
+      --text: #f4f2e8;
+      --muted: #c6c7bd;
+      --gold: #d3a74e;
+      --gold2: #f0cf78;
+      --green: #8eb487;
+      --line: rgba(240, 207, 120, .22);
+      --shadow: 0 22px 60px rgba(0,0,0,.42);
+      --radius: 22px;
+      --max: 1180px;
+    }
+
+    * { box-sizing: border-box; }
+
+    html {
+      scroll-behavior: smooth;
+      background: var(--bg);
+    }
+
+    body {
+      margin: 0;
+      color: var(--text);
+      background:
+        radial-gradient(circle at 20% 10%, rgba(41, 83, 57, .20), transparent 34%),
+        linear-gradient(180deg, #07100d 0%, #0a1511 45%, #050a08 100%);
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      line-height: 1.55;
+      overflow-x: hidden;
+    }
+
+    a { color: inherit; }
+
+    .shell {
+      width: min(calc(100% - 32px), var(--max));
+      margin: 0 auto;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 7px 11px;
+      border: 1px solid rgba(240, 207, 120, .34);
+      border-radius: 999px;
+      background: rgba(7,16,13,.56);
+      color: var(--gold2);
+      font-size: 12px;
+      letter-spacing: .13em;
+      text-transform: uppercase;
+      font-weight: 800;
+      backdrop-filter: blur(8px);
+    }
+
+    .eyebrow::before {
+      content: "";
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: var(--gold);
+      box-shadow: 0 0 14px rgba(211,167,78,.8);
+    }
+
+    .nav {
+      position: fixed;
+      inset: 0 0 auto 0;
+      z-index: 50;
+      background: linear-gradient(180deg, rgba(4, 10, 8, .9), rgba(4, 10, 8, .48), transparent);
+      transition: background .25s ease, border-color .25s ease;
+    }
+
+    .nav.scrolled {
+      background: rgba(4, 10, 8, .93);
+      border-bottom: 1px solid rgba(255,255,255,.06);
+      backdrop-filter: blur(14px);
+    }
+
+    .nav-inner {
+      min-height: 70px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 18px;
+    }
+
+    .brand {
+      text-decoration: none;
+      font-weight: 900;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      font-size: 13px;
+    }
+
+    .brand span { color: var(--gold2); }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 18px;
+      font-size: 13px;
+      color: #d8d9d2;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      opacity: .9;
+    }
+
+    .nav-links a:hover { opacity: 1; color: var(--gold2); }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 48px;
+      padding: 0 20px;
+      border-radius: 999px;
+      text-decoration: none;
+      font-weight: 850;
+      letter-spacing: .01em;
+      border: 1px solid transparent;
+      cursor: pointer;
+      transition: transform .2s ease, filter .2s ease, border-color .2s ease;
+      user-select: none;
+    }
+
+    .btn:hover { transform: translateY(-1px); filter: brightness(1.06); }
+
+    .btn-primary {
+      color: #171006;
+      background: linear-gradient(135deg, var(--gold2), #b98127);
+      box-shadow: 0 12px 32px rgba(181,128,39,.24);
+    }
+
+    .btn-secondary {
+      border-color: rgba(255,255,255,.23);
+      background: rgba(5,12,9,.46);
+      color: #fff;
+      backdrop-filter: blur(10px);
+    }
+
+    .btn-small {
+      min-height: 40px;
+      padding: 0 16px;
+      font-size: 13px;
+    }
+
+    .hero {
+      position: relative;
+      min-height: 100svh;
+      display: grid;
+      align-items: center;
+      isolation: isolate;
+      overflow: hidden;
+    }
+
+    .hero-video,
+    .hero-fallback,
+    .hero-overlay {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+    }
+
+    .hero-video {
+      object-fit: cover;
+      object-position: 50% 36%;
+      z-index: -4;
+      background: #07100d;
+    }
+
+    .hero-fallback {
+      z-index: -5;
+      background:
+        radial-gradient(circle at 75% 25%, rgba(177,117,40,.3), transparent 28%),
+        linear-gradient(145deg, #14261c 0%, #09110d 54%, #030605 100%);
+    }
+
+    .hero-overlay {
+      z-index: -3;
+      background:
+        linear-gradient(90deg, rgba(4,9,7,.93) 0%, rgba(4,9,7,.78) 42%, rgba(4,9,7,.34) 74%, rgba(4,9,7,.62) 100%),
+        linear-gradient(180deg, rgba(3,7,5,.45) 0%, rgba(3,7,5,.12) 45%, rgba(3,7,5,.92) 100%);
+    }
+
+    .hero-grid {
+      padding: 120px 0 74px;
+      display: grid;
+      grid-template-columns: minmax(0, 1.08fr) minmax(280px, .62fr);
+      align-items: center;
+      gap: 56px;
+    }
+
+    h1 {
+      margin: 18px 0 18px;
+      max-width: 850px;
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: clamp(46px, 7.2vw, 92px);
+      line-height: .93;
+      letter-spacing: -.045em;
+      text-wrap: balance;
+      text-shadow: 0 6px 30px rgba(0,0,0,.32);
+    }
+
+    h1 em {
+      display: block;
+      color: var(--gold2);
+      font-style: normal;
+      font-size: .58em;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      margin-top: 13px;
+      line-height: 1.05;
+    }
+
+    .hero-copy {
+      max-width: 720px;
+      color: #e6e6de;
+      font-size: clamp(17px, 2vw, 21px);
+      margin: 0 0 28px;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-bottom: 26px;
+    }
+
+    .hero-proof {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px 18px;
+      color: #d4d6ce;
+      font-size: 13px;
+    }
+
+    .hero-proof span::before {
+      content: "✓";
+      color: var(--gold2);
+      margin-right: 7px;
+      font-weight: 900;
+    }
+
+    .hero-card {
+      justify-self: end;
+      width: min(100%, 380px);
+      padding: 16px;
+      border: 1px solid rgba(255,255,255,.14);
+      border-radius: 28px;
+      background: linear-gradient(180deg, rgba(9,20,15,.72), rgba(6,12,9,.9));
+      box-shadow: var(--shadow);
+      backdrop-filter: blur(14px);
+    }
+
+    .hero-card-frame {
+      aspect-ratio: 9 / 16;
+      border-radius: 20px;
+      overflow: hidden;
+      background: #020403;
+      position: relative;
+    }
+
+    .hero-card-frame video {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      background: #000;
+    }
+
+    .hero-card-label {
+      margin: 13px 4px 2px;
+      color: #e4e3dc;
+      font-size: 13px;
+      display: flex;
+      justify-content: space-between;
+      gap: 12px;
+    }
+
+    .hero-card-label strong { color: var(--gold2); }
+
+    section { padding: 88px 0; }
+
+    .section-head {
+      max-width: 760px;
+      margin: 0 auto 42px;
+      text-align: center;
+    }
+
+    h2 {
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: clamp(34px, 5vw, 56px);
+      line-height: 1.02;
+      letter-spacing: -.035em;
+      margin: 14px 0;
+      text-wrap: balance;
+    }
+
+    .section-head p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 17px;
+    }
+
+    .quote-strip {
+      padding: 38px 0;
+      border-top: 1px solid var(--line);
+      border-bottom: 1px solid var(--line);
+      background: rgba(7, 16, 13, .55);
+    }
+
+    .quote {
+      text-align: center;
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: clamp(23px, 3.5vw, 39px);
+      line-height: 1.2;
+      max-width: 980px;
+      margin: 0 auto;
+    }
+
+    .quote span { color: var(--gold2); }
+
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 16px;
+    }
+
+    .card {
+      border: 1px solid rgba(255,255,255,.09);
+      border-radius: var(--radius);
+      padding: 24px;
+      background:
+        linear-gradient(180deg, rgba(18,38,28,.74), rgba(8,17,13,.85));
+      box-shadow: 0 15px 38px rgba(0,0,0,.18);
+    }
+
+    .icon {
+      width: 43px;
+      height: 43px;
+      display: grid;
+      place-items: center;
+      border-radius: 13px;
+      border: 1px solid rgba(240,207,120,.28);
+      background: rgba(211,167,78,.11);
+      color: var(--gold2);
+      font-size: 20px;
+      margin-bottom: 17px;
+    }
+
+    .card h3 {
+      margin: 0 0 9px;
+      font-size: 19px;
+    }
+
+    .card p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 15px;
+    }
+
+    .trailer-layout {
+      display: grid;
+      grid-template-columns: minmax(0, .86fr) minmax(0, 1.14fr);
+      gap: 42px;
+      align-items: center;
+    }
+
+    .trailer-copy p { color: var(--muted); font-size: 17px; }
+
+    .bullet-list {
+      margin: 24px 0 28px;
+      padding: 0;
+      list-style: none;
+      display: grid;
+      gap: 12px;
+    }
+
+    .bullet-list li {
+      display: grid;
+      grid-template-columns: 24px 1fr;
+      gap: 10px;
+      color: #e5e6df;
+    }
+
+    .bullet-list li::before {
+      content: "◆";
+      color: var(--gold);
+      font-size: 11px;
+      margin-top: 5px;
+    }
+
+    .trailer-wrap {
+      padding: 14px;
+      border-radius: 28px;
+      border: 1px solid rgba(255,255,255,.13);
+      background: rgba(6,13,10,.82);
+      box-shadow: var(--shadow);
+    }
+
+    .trailer-frame {
+      width: 100%;
+      max-width: 430px;
+      margin: 0 auto;
+      aspect-ratio: 9/16;
+      overflow: hidden;
+      border-radius: 19px;
+      background: #000;
+    }
+
+    .trailer-frame video {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      display: block;
+      background: #000;
+    }
+
+    .inside-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 14px;
+    }
+
+    .inside-item {
+      display: flex;
+      gap: 15px;
+      padding: 20px;
+      border-radius: 18px;
+      border: 1px solid rgba(255,255,255,.08);
+      background: rgba(13,28,21,.68);
+    }
+
+    .inside-num {
+      flex: 0 0 42px;
+      height: 42px;
+      border-radius: 12px;
+      display: grid;
+      place-items: center;
+      color: #171006;
+      background: linear-gradient(135deg, var(--gold2), #b98127);
+      font-weight: 950;
+      font-size: 13px;
+    }
+
+    .inside-item h3 {
+      margin: 1px 0 5px;
+      font-size: 17px;
+    }
+
+    .inside-item p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .checklists {
+      padding: 28px;
+      border: 1px solid rgba(240,207,120,.18);
+      background: linear-gradient(145deg, rgba(35,51,35,.82), rgba(7,15,11,.94));
+      border-radius: 26px;
+      display: grid;
+      grid-template-columns: minmax(0, .75fr) minmax(0, 1.25fr);
+      gap: 30px;
+      align-items: center;
+    }
+
+    .checklist-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .checklist-tags span {
+      padding: 10px 13px;
+      border-radius: 999px;
+      color: #ebece5;
+      border: 1px solid rgba(255,255,255,.12);
+      background: rgba(255,255,255,.04);
+      font-size: 13px;
+    }
+
+    .author {
+      display: grid;
+      grid-template-columns: minmax(0, .72fr) minmax(0, 1.28fr);
+      gap: 40px;
+      align-items: center;
+    }
+
+    .author-mark {
+      min-height: 330px;
+      border-radius: 28px;
+      border: 1px solid rgba(240,207,120,.22);
+      background:
+        radial-gradient(circle at 50% 38%, rgba(240,207,120,.22), transparent 28%),
+        linear-gradient(145deg, #15271c, #070d0a);
+      display: grid;
+      place-items: center;
+      text-align: center;
+      padding: 30px;
+      box-shadow: var(--shadow);
+    }
+
+    .author-mark .initials {
+      font-family: Georgia, "Times New Roman", serif;
+      color: var(--gold2);
+      font-size: clamp(70px, 12vw, 128px);
+      line-height: .8;
+      letter-spacing: -.08em;
+    }
+
+    .author-mark small {
+      display: block;
+      margin-top: 22px;
+      color: #c7c8c1;
+      text-transform: uppercase;
+      letter-spacing: .16em;
+    }
+
+    .author-copy p { color: var(--muted); font-size: 16px; }
+
+    .bible-box {
+      margin-top: 20px;
+      border-left: 3px solid var(--gold);
+      padding: 13px 0 13px 18px;
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 20px;
+      color: #ece8d8;
+    }
+
+    .final-cta {
+      text-align: center;
+      padding: 98px 0 104px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .final-cta::before {
+      content: "";
+      position: absolute;
+      inset: 15% 20%;
+      background: radial-gradient(circle, rgba(211,167,78,.15), transparent 65%);
+      pointer-events: none;
+    }
+
+    .final-cta .inner {
+      position: relative;
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    .final-cta p {
+      color: var(--muted);
+      font-size: 18px;
+      max-width: 680px;
+      margin: 0 auto 26px;
+    }
+
+    footer {
+      border-top: 1px solid rgba(255,255,255,.07);
+      padding: 28px 0 42px;
+      color: #9fa39d;
+      font-size: 12px;
+    }
+
+    .footer-inner {
+      display: flex;
+      justify-content: space-between;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+
+    .legal {
+      max-width: 770px;
+    }
+
+    @media (max-width: 900px) {
+      .nav-links a:not(.nav-cta) { display: none; }
+
+      .hero-grid,
+      .trailer-layout,
+      .author,
+      .checklists {
+        grid-template-columns: 1fr;
+      }
+
+      .hero {
+        min-height: auto;
+      }
+
+      .hero-grid {
+        padding-top: 116px;
+      }
+
+      .hero-card {
+        justify-self: center;
+        width: min(100%, 340px);
+      }
+
+      .cards { grid-template-columns: 1fr; }
+      .inside-grid { grid-template-columns: 1fr; }
+
+      .trailer-copy { text-align: center; }
+      .bullet-list { text-align: left; max-width: 620px; margin-inline: auto; }
+      .trailer-copy .hero-actions { justify-content: center; }
+    }
+
+    @media (max-width: 580px) {
+      .shell { width: min(calc(100% - 24px), var(--max)); }
+      .nav-inner { min-height: 62px; }
+      .brand { font-size: 11px; max-width: 190px; }
+      .btn-small { min-height: 38px; padding: 0 13px; }
+
+      .hero-grid {
+        padding-top: 96px;
+        gap: 34px;
+      }
+
+      h1 { font-size: clamp(44px, 15vw, 67px); }
+      .hero-copy { font-size: 17px; }
+
+      .hero-actions .btn {
+        width: 100%;
+      }
+
+      section { padding: 68px 0; }
+
+      .card,
+      .checklists { padding: 20px; }
+
+      .inside-item { padding: 17px; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      .btn { transition: none; }
+    }
+  </style>
+</head>
+
+<body>
+  <nav class="nav" id="nav">
+    <div class="shell nav-inner">
+      <a class="brand" href="#top">Living Off the Grid <span>• The Survival Bible</span></a>
+      <div class="nav-links">
+        <a href="#inside">Inside the Guide</a>
+        <a href="#trailer">Watch Trailer</a>
+        <a class="btn btn-primary btn-small nav-cta" href="https://survivalbibleguide.com/" target="_blank" rel="noopener">Get the Guide</a>
+      </div>
+    </div>
+  </nav>
+
+  <header class="hero" id="top">
+    <div class="hero-fallback"></div>
+
+    <video
+      class="hero-video"
+      autoplay
+      muted
+      loop
+      playsinline
+      preload="auto"
+      aria-hidden="true"
+    >
+      <source src="Cinematic_Background_Video-1080x1920-30fps.mp4?v=faststart-final" type="video/mp4">
+    </video>
+
+    <div class="hero-overlay"></div>
+
+    <div class="shell hero-grid">
+      <div>
+        <span class="eyebrow">A Practical Preparedness Field Guide</span>
+        <h1>
+          Living Off the Grid
+          <em>The Survival Bible</em>
+        </h1>
+
+        <p class="hero-copy">
+          A practical guide for ordinary people who want to prepare for prolonged outages,
+          supply-chain disruption, infrastructure failure, and the realities of living with less dependence on modern systems.
+        </p>
+
+        <div class="hero-actions">
+          <a class="btn btn-primary" href="https://survivalbibleguide.com/" target="_blank" rel="noopener">Get The Survival Bible</a>
+          <a class="btn btn-secondary" href="#trailer">▶ Watch the Trailer</a>
+        </div>
+
+        <div class="hero-proof">
+          <span>15 core chapters</span>
+          <span>72-hour action plan</span>
+          <span>30-day checklist</span>
+          <span>8 practical appendices</span>
+        </div>
+      </div>
+
+      <aside class="hero-card" aria-label="Cinematic survival preview">
+        <div class="hero-card-frame">
+          <video autoplay muted loop playsinline preload="metadata">
+            <source src="Cinematic_Background_Video-1080x1920-30fps.mp4?v=faststart-card" type="video/mp4">
+          </video>
+        </div>
+        <div class="hero-card-label">
+          <span>Cinematic Preview</span>
+          <strong>Preparedness • Survival • Self-Reliance</strong>
+        </div>
+      </aside>
+    </div>
+  </header>
+
+  <div class="quote-strip">
+    <div class="shell">
+      <p class="quote">
+        “The prepared person is not the one who predicted the catastrophe correctly.
+        <span>The prepared person is the one who already knew what to do next.</span>”
+      </p>
+    </div>
+  </div>
+
+  <section id="why">
+    <div class="shell">
+      <div class="section-head">
+        <span class="eyebrow">Built for Real-World Readiness</span>
+        <h2>When ordinary systems stop working, what comes next?</h2>
+        <p>
+          The guide is organized around the systems people depend on every day — water, food, shelter,
+          power, sanitation, mobility, communication, and the mindset required to manage disruption.
+        </p>
+      </div>
+
+      <div class="cards">
+        <article class="card">
+          <div class="icon">◫</div>
+          <h3>The First 72 Hours</h3>
+          <p>Prioritize water, shelter, food, security, information, and communication when a crisis first begins.</p>
+        </article>
+
+        <article class="card">
+          <div class="icon">◉</div>
+          <h3>Practical Survival Systems</h3>
+          <p>Learn foundational approaches to water, food preservation, shelter, fire, energy, tools, sanitation, and navigation.</p>
+        </article>
+
+        <article class="card">
+          <div class="icon">⌂</div>
+          <h3>Long-Term Off-Grid Living</h3>
+          <p>Move beyond short-term emergency response into gardening, seed saving, small livestock, water independence, and community resilience.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section id="trailer">
+    <div class="shell trailer-layout">
+      <div class="trailer-copy">
+        <span class="eyebrow">Watch the Cinematic Trailer</span>
+        <h2>See the world this guide was built for.</h2>
+        <p>
+          The trailer introduces the central idea behind the book: modern systems are powerful,
+          but dependence becomes vulnerability when those systems fail.
+        </p>
+
+        <ul class="bullet-list">
+          <li>Designed for readers who want practical information without fear-driven hype.</li>
+          <li>Moves from immediate crisis response to sustainable long-term preparedness.</li>
+          <li>Combines field-guide instruction, visual material, chapter summaries, and ready-to-use checklists.</li>
+        </ul>
+
+        <div class="hero-actions">
+          <a class="btn btn-primary" href="https://survivalbibleguide.com/" target="_blank" rel="noopener">View the Book</a>
+          <a class="btn btn-secondary" href="#inside">Explore What's Inside</a>
+        </div>
+      </div>
+
+      <div class="trailer-wrap">
+        <div class="trailer-frame">
+          <video controls playsinline preload="metadata">
+            <source src="Cinematic_Trailer-1080x1920-30fps.mp4?v=faststart-final" type="video/mp4">
+            Your browser does not support HTML5 video.
+          </video>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="inside">
+    <div class="shell">
+      <div class="section-head">
+        <span class="eyebrow">Inside the Survival Bible</span>
+        <h2>A complete path from the first hour to long-term resilience.</h2>
+        <p>
+          The manuscript progresses from understanding how modern systems fail, through the first days of a crisis,
+          into the core skills and systems needed for sustained off-grid living.
+        </p>
+      </div>
+
+      <div class="inside-grid">
+        <article class="inside-item">
+          <div class="inside-num">01–02</div>
+          <div><h3>Understanding the Crisis</h3><p>System failure, infrastructure dependence, supply chains, communication, and healthcare vulnerability.</p></div>
+        </article>
+
+        <article class="inside-item">
+          <div class="inside-num">03–05</div>
+          <div><h3>The First 72 Hours & First 30 Days</h3><p>Immediate priorities, stabilize-and-assess decisions, and building a sustainable daily survival rhythm.</p></div>
+        </article>
+
+        <article class="inside-item">
+          <div class="inside-num">06–10</div>
+          <div><h3>Land, Water, Food, Shelter & Fire</h3><p>Reading terrain, water sourcing and purification, emergency food, preservation, shelter construction, heat, and cooking.</p></div>
+        </article>
+
+        <article class="inside-item">
+          <div class="inside-num">11–13</div>
+          <div><h3>Energy, Health, Mobility & Communication</h3><p>Solar basics, hand tools, sanitation, first aid preparation, navigation, bicycles, water travel, radio, and family communication planning.</p></div>
+        </article>
+
+        <article class="inside-item">
+          <div class="inside-num">14</div>
+          <div><h3>Long-Term Homestead Systems</h3><p>Site selection, food production, seed saving, small animal husbandry, water independence, community, and seasonal planning.</p></div>
+        </article>
+
+        <article class="inside-item">
+          <div class="inside-num">15</div>
+          <div><h3>The Survival Mindset</h3><p>Fear management, decision-making under uncertainty, leadership, family morale, and psychological endurance.</p></div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="shell">
+      <div class="checklists">
+        <div>
+          <span class="eyebrow">Appendices A–H</span>
+          <h2 style="margin-bottom:12px;">Checklists you can actually use.</h2>
+          <p style="color:var(--muted);margin:0;">
+            The back of the guide turns the material into practical reference lists for preparation and organization.
+          </p>
+        </div>
+
+        <div class="checklist-tags" aria-label="Appendix topics">
+          <span>72-Hour Survival Checklist</span>
+          <span>30-Day Survival Checklist</span>
+          <span>Basic Pantry Checklist</span>
+          <span>Emergency Water Checklist</span>
+          <span>Shelter Materials</span>
+          <span>Navigation Kit</span>
+          <span>Off-Grid Tools</span>
+          <span>Sanitation Checklist</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="shell author">
+      <div class="author-mark" aria-label="Daniel B. Anderson author mark">
+        <div>
+          <div class="initials">DBA</div>
+          <small>Daniel B. Anderson</small>
+        </div>
+      </div>
+
+      <div class="author-copy">
+        <span class="eyebrow">About the Author</span>
+        <h2>Preparedness without paranoia.</h2>
+        <p>
+          Daniel B. Anderson describes the book as a practical, human guide written for people across backgrounds and beliefs.
+          Its focus is preparedness, self-reliance, and preserving useful knowledge — not predicting one specific disaster.
+        </p>
+        <p>
+          The guiding idea is simple: preparedness is not about living in fear. It is about converting uncertainty into practical knowledge,
+          useful skills, and a plan for protecting the people you care about.
+        </p>
+
+        <div class="bible-box">
+          <strong>B.I.B.L.E.</strong><br>
+          Basic Information Before Leaving Earth.
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="final-cta">
+    <div class="shell inner">
+      <span class="eyebrow">Start Preparing Before You Need To</span>
+      <h2>The world has always been uncertain. Preparation gives you options.</h2>
+      <p>
+        Build the knowledge, checklists, and practical systems that help you respond with purpose when ordinary systems are under pressure.
+      </p>
+      <a class="btn btn-primary" href="https://survivalbibleguide.com/" target="_blank" rel="noopener">Get Living Off the Grid: The Survival Bible</a>
+    </div>
+  </section>
+
+  <footer>
+    <div class="shell footer-inner">
+      <div>
+        © Daniel B. Anderson. All rights reserved.
+      </div>
+      <div class="legal">
+        Educational and general informational content only. Survival situations carry real risk.
+        Use current, locally relevant guidance and qualified professional advice where appropriate.
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    const nav = document.getElementById("nav");
+    const setNav = () => nav.classList.toggle("scrolled", window.scrollY > 18);
+    setNav();
+    window.addEventListener("scroll", setNav, { passive: true });
+
+    document.addEventListener("visibilitychange", () => {
+      if (!document.hidden) {
+        document.querySelectorAll("video[autoplay]").forEach(v => {
+          v.play().catch(() => {});
+        });
+      }
+    });
+  </script>
+</body>
+</html>

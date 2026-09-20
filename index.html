@@ -650,7 +650,101 @@
       html { scroll-behavior: auto; }
       .btn { transition: none; }
     }
-  </style>
+  
+/* ===== SURVIVAL ELEMENT CHARTS ===== */
+.element-charts-section {
+  padding: 80px 20px;
+  background: linear-gradient(180deg, #07100d 0%, #0b1712 100%);
+  text-align: center;
+}
+
+.element-charts-section h2 {
+  color: #d3a74e;
+  font-size: clamp(2rem, 5vw, 3rem);
+  margin: 0 0 12px;
+}
+
+.charts-subtitle {
+  color: #c6c7bd;
+  max-width: 760px;
+  margin: 0 auto 38px;
+  line-height: 1.6;
+}
+
+.charts-grid {
+  max-width: 1100px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 24px;
+}
+
+.chart-card {
+  background: rgba(12, 26, 20, .94);
+  border: 1px solid rgba(211, 167, 78, .38);
+  border-radius: 18px;
+  padding: 16px;
+  box-shadow: 0 12px 30px rgba(0,0,0,.35);
+}
+
+.chart-card img {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 12px;
+}
+
+.chart-card h3 {
+  color: #f4f2e8;
+  margin: 16px 0 13px;
+}
+
+.chart-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.chart-btn {
+  display: inline-block;
+  padding: 10px 15px;
+  border-radius: 9px;
+  text-decoration: none;
+  font-weight: 700;
+  transition: .2s ease;
+}
+
+.chart-view {
+  background: #213c2d;
+  color: #fff;
+}
+
+.chart-download {
+  background: #d3a74e;
+  color: #07100d;
+}
+
+.chart-btn:hover {
+  transform: translateY(-2px);
+  opacity: .92;
+}
+
+.download-all-wrap {
+  margin-top: 38px;
+}
+
+.download-all-btn {
+  display: inline-block;
+  padding: 14px 24px;
+  background: #d3a74e;
+  color: #07100d;
+  text-decoration: none;
+  font-weight: 800;
+  border-radius: 10px;
+}
+
+</style>
 </head>
 
 <body>
@@ -896,7 +990,82 @@
     </div>
   </section>
 
-  <section class="final-cta">
+  
+<!-- ===== SURVIVAL ELEMENT CHARTS ===== -->
+<section class="element-charts-section" id="charts">
+  <h2>SURVIVAL ELEMENT CHARTS</h2>
+  <p class="charts-subtitle">
+    Practical visual survival references from Living Off the Grid: The Survival Bible.
+    View each guide full size or download it for your preparedness library.
+  </p>
+
+  <div class="charts-grid">
+
+    <div class="chart-card">
+      <img src="assets/charts/fire-chart.png" alt="Fire survival chart">
+      <h3>Fire</h3>
+      <div class="chart-buttons">
+        <a class="chart-btn chart-view" href="assets/charts/fire-chart.png" target="_blank">View Full Size</a>
+        <a class="chart-btn chart-download" href="assets/charts/fire-chart.png" download>Download Chart</a>
+      </div>
+    </div>
+
+    <div class="chart-card">
+      <img src="assets/charts/water-chart.png" alt="Water survival chart">
+      <h3>Water</h3>
+      <div class="chart-buttons">
+        <a class="chart-btn chart-view" href="assets/charts/water-chart.png" target="_blank">View Full Size</a>
+        <a class="chart-btn chart-download" href="assets/charts/water-chart.png" download>Download Chart</a>
+      </div>
+    </div>
+
+    <div class="chart-card">
+      <img src="assets/charts/earth-chart.png" alt="Earth survival chart">
+      <h3>Earth</h3>
+      <div class="chart-buttons">
+        <a class="chart-btn chart-view" href="assets/charts/earth-chart.png" target="_blank">View Full Size</a>
+        <a class="chart-btn chart-download" href="assets/charts/earth-chart.png" download>Download Chart</a>
+      </div>
+    </div>
+
+    <div class="chart-card">
+      <img src="assets/charts/wind-chart.png" alt="Wind survival chart">
+      <h3>Wind</h3>
+      <div class="chart-buttons">
+        <a class="chart-btn chart-view" href="assets/charts/wind-chart.png" target="_blank">View Full Size</a>
+        <a class="chart-btn chart-download" href="assets/charts/wind-chart.png" download>Download Chart</a>
+      </div>
+    </div>
+
+    <div class="chart-card">
+      <img src="assets/charts/food-chart.png" alt="Food survival chart">
+      <h3>Food</h3>
+      <div class="chart-buttons">
+        <a class="chart-btn chart-view" href="assets/charts/food-chart.png" target="_blank">View Full Size</a>
+        <a class="chart-btn chart-download" href="assets/charts/food-chart.png" download>Download Chart</a>
+      </div>
+    </div>
+
+    <div class="chart-card">
+      <img src="assets/charts/tool-chart.png" alt="Off-grid tools chart">
+      <h3>Tools</h3>
+      <div class="chart-buttons">
+        <a class="chart-btn chart-view" href="assets/charts/tool-chart.png" target="_blank">View Full Size</a>
+        <a class="chart-btn chart-download" href="assets/charts/tool-chart.png" download>Download Chart</a>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="download-all-wrap">
+    <a class="download-all-btn" href="downloads/survival-element-charts.zip" download>
+      Download All 6 Charts
+    </a>
+  </div>
+</section>
+
+
+<section class="final-cta">
     <div class="shell inner">
       <span class="eyebrow">Start Preparing Before You Need To</span>
       <h2>The world has always been uncertain. Preparation gives you options.</h2>
