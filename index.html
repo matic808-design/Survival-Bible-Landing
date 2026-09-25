@@ -850,6 +850,26 @@
   background: rgba(255,255,255,.025);
 }
 
+
+    /* Free 72-hour companion */
+    #free-checklist { scroll-margin-top: 82px; }
+    .free-checklist-card { display: grid; grid-template-columns: minmax(0, .8fr) minmax(0, 1.2fr); gap: clamp(28px, 5vw, 72px); align-items: center; padding: clamp(24px, 4vw, 54px); border: 1px solid var(--line); border-radius: var(--radius); background: radial-gradient(ellipse at top left, rgba(211,167,78,.12), transparent 65%), var(--panel2); box-shadow: var(--shadow); }
+    .free-checklist-cover { display: block; width: 100%; max-width: 360px; height: auto; margin: 0 auto; border-radius: 8px; box-shadow: 0 22px 50px rgba(0,0,0,.5); }
+    .free-checklist-copy h2 { margin: 18px 0 14px; font-size: clamp(30px, 4vw, 48px); line-height: 1.12; letter-spacing: -.025em; }
+    .free-checklist-copy > p { color: var(--muted); }
+    .free-checklist-features { padding-left: 22px; margin: 22px 0; color: var(--text); }
+    .free-checklist-features li { margin: 9px 0; padding-left: 3px; }
+    .free-checklist-features li::marker { color: var(--gold2); }
+    .free-checklist-actions { display: flex; flex-wrap: wrap; gap: 12px; }
+    .free-checklist-actions .btn { padding: 12px 20px; text-align: center; }
+    .free-checklist-copy .free-checklist-note { font-size: 13px; margin: 14px 0 0; }
+    #free-checklist a:focus-visible, .free-checklist-hero:focus-visible { outline: 3px solid var(--gold2); outline-offset: 5px; }
+    @media (max-width: 700px) {
+      .free-checklist-card { grid-template-columns: 1fr; }
+      .free-checklist-cover { max-width: 280px; }
+      .free-checklist-actions { flex-direction: column; }
+    }
+
 </style>
 </head>
 
@@ -859,6 +879,7 @@
       <a class="brand" href="#top">Living Off the Grid <span>• The Survival Bible</span></a>
       <div class="nav-links">
         <a href="#inside">Inside the Guide</a>
+        <a href="#free-checklist">Free Checklist</a>
         <a href="#trailer">Watch Trailer</a>
         <a class="btn btn-primary btn-small nav-cta" href="https://survivalbibleguide.com/" target="_blank" rel="noopener">Get the Guide</a>
       </div>
@@ -898,6 +919,7 @@
         <div class="hero-actions">
           <a class="btn btn-primary" href="https://survivalbibleguide.com/" target="_blank" rel="noopener">Get The Survival Bible</a>
           <a class="btn btn-secondary" href="#trailer">▶ Watch the Trailer</a>
+          <a class="btn btn-secondary free-checklist-hero" href="#free-checklist">Get the Free Checklist</a>
         </div>
 
         <div class="hero-proof">
@@ -930,6 +952,31 @@
       </p>
     </div>
   </div>
+
+
+  <section id="free-checklist" aria-labelledby="free-checklist-title">
+    <div class="shell">
+      <div class="free-checklist-card">
+        <img class="free-checklist-cover" src="checklist-cover.png" width="1104" height="1424" loading="lazy" decoding="async" alt="The First 72 Hours Emergency Checklist by Daniel B. Anderson: a cinematic wilderness cover with mountains, a waterfall and survival tools.">
+        <div class="free-checklist-copy">
+          <span class="eyebrow">Free companion guide</span>
+          <h2 id="free-checklist-title">Your first 72 hours.<br>A plan you can start today.</h2>
+          <p>Take the first step toward a prepared household with this free, illustrated companion to <em>Living Off the Grid: The Survival Bible</em>.</p>
+          <ul class="free-checklist-features">
+            <li>Water, food, lighting, health and go-bag checklists</li>
+            <li>A simple first-three-days action guide</li>
+            <li>A fillable household emergency plan</li>
+            <li>A one-page checklist to print for your fridge</li>
+          </ul>
+          <div class="free-checklist-actions">
+            <a class="btn btn-primary" href="72-hour-checklist.pdf" download="Living_Off_The_Grid_72_Hour_Checklist.pdf">Download My Free Checklist</a>
+            <a class="btn btn-secondary" href="72-hour-checklist.pdf" target="_blank" rel="noopener">Preview the PDF</a>
+          </div>
+          <p class="free-checklist-note">10 pages &bull; Printable + fillable PDF &bull; Free download</p>
+        </div>
+      </div>
+    </div>
+  </section>
 
   <section id="why">
     <div class="shell">
