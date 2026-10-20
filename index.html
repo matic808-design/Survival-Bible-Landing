@@ -870,6 +870,29 @@
       .free-checklist-actions { flex-direction: column; }
     }
 
+
+    /* EmailOctopus signup: scoped to the free checklist card */
+    .free-checklist-signup {
+      margin: 24px 0 18px;
+      padding: clamp(16px, 3vw, 24px);
+      border: 1px solid rgba(240, 207, 120, .34);
+      border-radius: 18px;
+      background: rgba(5, 12, 9, .55);
+      min-width: 0;
+      overflow-wrap: anywhere;
+    }
+    .free-checklist-signup-title {
+      margin: 0 0 7px;
+      font-size: clamp(19px, 2vw, 23px);
+      font-weight: 800;
+      color: var(--gold2);
+    }
+    .free-checklist-signup-intro {
+      color: var(--muted);
+      font-size: 14px;
+      margin: 0 0 14px;
+    }
+
 </style>
 </head>
 
@@ -968,6 +991,12 @@
             <li>A fillable household emergency plan</li>
             <li>A one-page checklist to print for your fridge</li>
           </ul>
+          <!-- EmailOctopus: free 72-hour checklist signup -->
+          <div class="free-checklist-signup" aria-label="Sign up for your free 72-hour survival checklist">
+            <p class="free-checklist-signup-title">Get your free checklist by email</p>
+            <p class="free-checklist-signup-intro">Enter your email below to receive your checklist and occasional preparedness resources.</p>
+            <script async src="https://eocampaign1.com/form/7a2a8716-cc08-11f1-83f1-2db3f797baf3.js" data-form="7a2a8716-cc08-11f1-83f1-2db3f797baf3"></script>
+          </div>
           <div class="free-checklist-actions">
             <a class="btn btn-primary" href="72-hour-checklist.pdf" download="Living_Off_The_Grid_72_Hour_Checklist.pdf">Download My Free Checklist</a>
             <a class="btn btn-secondary" href="72-hour-checklist.pdf" target="_blank" rel="noopener">Preview the PDF</a>
